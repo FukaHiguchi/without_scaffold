@@ -1,0 +1,11 @@
+<h1>My Thread</h1>
+<h2>ようこそ</h2>
+<%= link_to "create new thread", new_my_thread_path%>
+<br>
+<br>
+<% @my_threads.each do | my_thread |%>
+  <div>
+    <%=  link_to my_thread.text ,my_thread %>
+  </div>
+  <br>
+<% end %>

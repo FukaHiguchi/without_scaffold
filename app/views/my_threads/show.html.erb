@@ -1,0 +1,19 @@
+<h1>My Thread </h1>
+<%= @my_thread.text %>
+<%= link_to "Back to my thread", my_threads_path %>
+<%= button_to "消去" , my_thread_path(@my_thread), method: :delete , form: {data: { turbo_confirm: 'Sure?' }} %>
+<%= button_to "編集" , edit_my_thread_path(@my_thread), method: :get %>
+<br>
+
+<%= link_to "Create new comment", new_my_thread_comment_path(@my_thread)%>
+
+<div>
+  <h3>comment</h3>
+  <ul>
+    <% @my_thread.comments.each do |comment|%>
+      <li><%= comment.text %></li>
+      <%= button_to "消去" , my_thread_comment_path(@my_thread,comment), method: :delete , form: {data: { turbo_confirm: 'Sure?' }} %>
+      <%= button_to "編集" , edit_my_thread_comment_path(@my_thread,comment), method: :get %>
+    <% end %>
+  </ul>
+</div>
